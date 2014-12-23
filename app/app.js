@@ -6,6 +6,7 @@ angular.module('myApp', [
   'myApp.view1',
   'myApp.version',
   'myApp.services',
+  'myApp.uiClasses',
   'myApp.directives'
 ]).
 config(['$routeProvider', function($routeProvider) {

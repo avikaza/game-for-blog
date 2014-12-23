@@ -1,5 +1,5 @@
 angular.module('myApp.directives', [])
-.directive('spriteSheetRunner', ['loaderSvc', function (loaderSvc) {
+.directive('spriteSheetRunner', ['loaderSvc', 'Sky', function (loaderSvc, Sky) {
         "use strict";
         return {
             restrict : 'EAC',
@@ -27,9 +27,8 @@ angular.module('myApp.directives', [])
                     loaderSvc.loadAssets();
                 }
                 function handleComplete() {
-                    sky = new createjs.Shape();
-                    sky.graphics.beginBitmapFill(loaderSvc.getResult("sky")).drawRect(0, 0, w, h);
-
+                    sky = new Sky({width:w, height:h});
+                    sky.addToStage(scope.stage);
                     var groundImg = loaderSvc.getResult("ground");
                     ground = new createjs.Shape();
                     ground.graphics.beginBitmapFill(groundImg).drawRect(0, 0, w + groundImg.width, groundImg.height);
@@ -55,8 +54,7 @@ angular.module('myApp.directives', [])
                     });
                     grant = new createjs.Sprite(spriteSheet, "run");
                     grant.y = 35;
-
-                    scope.stage.addChild(sky, hill, hill2, ground, grant);
+                    scope.stage.addChild(hill, hill2, ground, grant);
                     scope.stage.addEventListener("stagemousedown", handleJumpStart);
 
                     createjs.Ticker.timingMode = createjs.Ticker.RAF;
