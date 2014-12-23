@@ -14,21 +14,23 @@
 <body>
   <ul class="menu">
     <li><a href="#/view1">view1</a></li>
-    <li><a href="#/view2">view2</a></li>
   </ul>
 
   <div ng-view></div>
-
   <div>Angular seed app: v<span app-version></span></div>
-
   <!-- In production use:
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+  <script src="http://code.createjs.com/preloadjs-0.6.0.min.js"></script>
+  <script src="http://code.createjs.com/easeljs-0.8.0.min.js"></script>
+  <script src="http://code.createjs.com/soundjs-0.6.0.min.js"></script>
   -->
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
   <script src="app.js"></script>
+  <script src="libs/preload.js"></script>
+  <script src="libs/easel.js"></script>
+  <script src="libs/sound.js"></script>
   <script src="view1/view1.js"></script>
-  <script src="view2/view2.js"></script>
   <script src="components/version/version.js"></script>
   <script src="components/version/version-directive.js"></script>
   <script src="components/version/interpolate-filter.js"></script>
