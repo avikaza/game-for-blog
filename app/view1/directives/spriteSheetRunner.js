@@ -38,12 +38,22 @@ myDirectives.directive('spriteSheetRunner', ['loaderSvc','Sky', 'Ground', 'Hill'
                     scope.stage.addEventListener("stagemousedown", handleJumpStart);
                     createjs.Ticker.timingMode = createjs.Ticker.RAF;
                     createjs.Ticker.addEventListener("tick", tick);
+                    window.onkeydown = keydown;
                 }
-
+                function keydown(event) {
+                    if (event.keyCode === 38) {//if keyCode is "Up"
+                        handleJumpStart();
+                    }
+                    if (event.keyCode === 39) {//if keyCode is "Right"
+                        createjs.Ticker.addEventListener("tick", tick);
+                    }
+                    if (event.keyCode === 37) {//if keyCode is "Left"
+                        createjs.Ticker.removeEventListener("tick", tick);
+                    }
+                }
                 function handleJumpStart() {
                     grant.playAnimation("jump");
                 }
-
                 function tick(event) {
                     var deltaS = event.delta / 1000;
                     var position = grant.getX() + 150 * deltaS;
