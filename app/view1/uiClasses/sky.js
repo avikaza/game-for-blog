@@ -1,4 +1,4 @@
-angular.module("myApp.uiClasses", []).factory("Sky", ['loaderSvc', function (loaderSvc) {
+uiClasses.factory("Sky", ['loaderSvc', function (loaderSvc) {
         function Sky(obj) {
             this.sky = new createjs.Shape();
             this.sky.graphics.beginBitmapFill(loaderSvc.getResult("sky")).drawRect(0, 0, obj.width, obj.height);

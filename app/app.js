@@ -12,3 +12,6 @@ angular.module('myApp', [
 config(['$routeProvider', function($routeProvider) {
   $routeProvider.otherwise({redirectTo: '/view1'});
 }]);
+var uiClasses = angular.module('myApp.uiClasses', []);
+var myServices = angular.module('myApp.services', []);
+var myDirectives = angular.module('myApp.directives', []);

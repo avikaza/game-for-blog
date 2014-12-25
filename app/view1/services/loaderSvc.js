@@ -1,5 +1,4 @@
-angular.module('myApp.services', [])
-.factory('loaderSvc', function () {
+myServices.factory('loaderSvc', function () {
         var manifest = [
             {src: "spritesheet_grant.png", id: "grant"},
             {src: "sky.png", id: "sky"},
