@@ -7,7 +7,7 @@ myDirectives.directive('spriteSheetRunner', ['loaderSvc','Sky', 'Ground', 'Hill'
             },
             template: "<canvas width='960' height='400'></canvas>",
             link: function (scope, element, attribute) {
-                var w, h, sky, grant, ground, hill, hill2;
+                var w, h, sky, grant, ground, hill, hill2, runningSoundInstance, status;
                 drawGame();
                 function drawGame() {
                     //drawing the game canvas from scratch here
@@ -38,6 +38,9 @@ myDirectives.directive('spriteSheetRunner', ['loaderSvc','Sky', 'Ground', 'Hill'
                     scope.stage.addEventListener("stagemousedown", handleJumpStart);
                     createjs.Ticker.timingMode = createjs.Ticker.RAF;
                     createjs.Ticker.addEventListener("tick", tick);
+                    // start playing the running sound looping indefinitely
+                    runningSoundInstance = createjs.Sound.play("runningSound", {loop: -1});
+                    scope.status = "running";
                     window.onkeydown = keydown;
                 }
                 function keydown(event) {
@@ -45,18 +48,28 @@ myDirectives.directive('spriteSheetRunner', ['loaderSvc','Sky', 'Ground', 'Hill'
                         handleJumpStart();
                     }
                     if (event.keyCode === 39) {//if keyCode is "Right"
-                        createjs.Ticker.addEventListener("tick", tick);
+                        if (scope.status === "paused") {
+                            createjs.Ticker.addEventListener("tick", tick);
+                            runningSoundInstance = createjs.Sound.play("runningSound", {loop: -1});
+                            scope.status = "running";
+                        }
                     }
                     if (event.keyCode === 37) {//if keyCode is "Left"
                         createjs.Ticker.removeEventListener("tick", tick);
+                        createjs.Sound.stop()
+                        scope.status = "paused";
                     }
                 }
                 function handleJumpStart() {
-                    grant.playAnimation("jump");
+                    if (scope.status === "running") {
+                        createjs.Sound.play("jumpingSound");
+                        grant.playAnimation("jump");
+                    }
                 }
                 function tick(event) {
                     var deltaS = event.delta / 1000;
                     var position = grant.getX() + 150 * deltaS;
+
                     grant.setX((position >= w + grant.getWidth()) ? -grant.getWidth() : position);
                     ground.setX((ground.getX() - deltaS * 150) % ground.getTileWidth());
                     hill.move(deltaS * -30, 0);
