@@ -1,4 +1,4 @@
-myServices.factory('loaderSvc', function () {
+myServices.service('loaderSvc', function () {
         var manifest = [
             {src: "spritesheet_grant.png", id: "grant"},
             {src: "sky.png", id: "sky"},
@@ -10,15 +10,13 @@ myServices.factory('loaderSvc', function () {
         ], loader = new createjs.LoadQueue(true);
         createjs.Sound.registerPlugins([createjs.HTMLAudioPlugin]);  // need this so it doesn't default to Web Audio
         loader.installPlugin(createjs.Sound);
-    return {
-            getResult: function (asset) {
+    this.getResult = function (asset) {
                 return loader.getResult(asset);
-            },
-            getLoader: function () {
+            };
+    this.getLoader = function () {
                 return loader;
-            },
-            loadAssets: function () {
+            };
+    this.loadAssets = function () {
                 loader.loadManifest(manifest, true, "/app/assets/");
-            }
-        }
+            };
     });

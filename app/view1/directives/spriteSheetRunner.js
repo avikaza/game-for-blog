@@ -4,11 +4,19 @@ myDirectives.directive('spriteSheetRunner', ['loaderSvc','Sky', 'Ground', 'Hill'
             restrict : 'EAC',
             replace : true,
             scope :{
+                width: '=width',
+                height: '=height',
+                score: '=score',
+                lifesCount: '=lifesCount'
             },
-            template: "<canvas width='960' height='400'></canvas>",
+            template: "<canvas></canvas>",
             link: function (scope, element, attribute) {
                 var w, h, sky, grant, ground, hill, hill2, runningSoundInstance, status;
                 drawGame();
+                element[0].width = scope.width;
+                element[0].height = scope.height;
+                w = scope.width;
+                h = scope.height;
                 function drawGame() {
                     //drawing the game canvas from scratch here
                     if (scope.stage) {
@@ -42,6 +50,9 @@ myDirectives.directive('spriteSheetRunner', ['loaderSvc','Sky', 'Ground', 'Hill'
                     runningSoundInstance = createjs.Sound.play("runningSound", {loop: -1});
                     scope.status = "running";
                     window.onkeydown = keydown;
+                    scope.score = 10;
+                    scope.lifesCount = 2;
+                    scope.$apply();
                 }
                 function keydown(event) {
                     if (event.keyCode === 38) {//if keyCode is "Up"
@@ -56,7 +67,7 @@ myDirectives.directive('spriteSheetRunner', ['loaderSvc','Sky', 'Ground', 'Hill'
                     }
                     if (event.keyCode === 37) {//if keyCode is "Left"
                         createjs.Ticker.removeEventListener("tick", tick);
-                        createjs.Sound.stop()
+                        createjs.Sound.stop();
                         scope.status = "paused";
                     }
                 }

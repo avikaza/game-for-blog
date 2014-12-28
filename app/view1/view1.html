@@ -1,1 +1,9 @@
-<sprite-sheet-runner></sprite-sheet-runner>
+<sprite-sheet-runner width="windowWidth" height="gameHeight" score="score" lifes-count="lifesCount"></sprite-sheet-runner>
+<span class="top-left"><h2>Score: {{score}}</h2></span>
+<span class="top-right"><h2>Life: <i ng-if="lifesCount > 0" class="fa fa-heart"></i>
+                                  <i ng-if="lifesCount < 1" class="fa fa-heart-o"></i>
+                                  <i ng-if="lifesCount > 1" class="fa fa-heart"></i>
+                                  <i ng-if="lifesCount < 2" class="fa fa-heart-o"></i>
+                                  <i ng-if="lifesCount > 2" class="fa fa-heart"></i>
+                                  <i ng-if="lifesCount < 3" class="fa fa-heart-o"></i>
+                        </h2></span>
