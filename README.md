@@ -1,9 +1,10 @@
 # Using CreateJS and AngularJS to create html5 canvas based games
 
 This sample is published as part of the blog article at [www.toptal.com/blog] (http://www.toptal.com/blog)
+
 Visit [www.toptal.com/blog] (http://www.toptal.com/blog) and subscribe to our newsletter to read great posts
 
-I started by downloading application skeleton for a typical [AngularJS](http://angularjs.org/) web app from [here](https://github.com/angular/angular-seed.git), and implemented EaselJS' SpriteSheets example from [here](http://www.createjs.com/#!/Demos/EaselJS/Spritesheets)
+I started by downloading application skeleton for a typical [AngularJS](http://angularjs.org/) web app from [here](https://github.com/angular/angular-seed.git), implemented EaselJS' SpriteSheets example from [here](http://www.createjs.com/#!/Demos/EaselJS/Spritesheets), and finally added some music, sound effects and scoring mechanism
 
 ## Getting Started
 
