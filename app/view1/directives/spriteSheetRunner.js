@@ -1,4 +1,4 @@
-myDirectives.directive('spriteSheetRunner', ['loaderSvc','Sky', 'Ground', 'Hill', 'Character', function (loaderSvc, Sky, Ground, Hill, Character) {
+myDirectives.directive('spriteSheetRunner', ['loaderSvc','Sky', 'Ground', 'Hill', 'Character', 'Logo', function (loaderSvc, Sky, Ground, Hill, Character, Logo) {
         "use strict";
         return {
             restrict : 'EAC',
@@ -11,7 +11,7 @@ myDirectives.directive('spriteSheetRunner', ['loaderSvc','Sky', 'Ground', 'Hill'
             },
             template: "<canvas></canvas>",
             link: function (scope, element, attribute) {
-                var w, h, sky, grant, ground, hill, hill2, runningSoundInstance, status;
+                var w, h, sky, grant, ground, hill, hill2, runningSoundInstance, logo;
                 drawGame();
                 element[0].width = scope.width;
                 element[0].height = scope.height;
@@ -34,6 +34,9 @@ myDirectives.directive('spriteSheetRunner', ['loaderSvc','Sky', 'Ground', 'Hill'
                 function handleComplete() {
                     sky = new Sky({width:w, height:h});
                     sky.addToStage(scope.stage);
+                    logo = new Logo({y: 10});
+                    logo.setHorizontalCenterAt(w / 2);
+                    logo.addToStage(scope.stage);
                     ground = new Ground({width:w, height:h});
                     hill = new Hill({width:w, height:h, scaleFactor: 4, assetName: 'hill', groundHeight: ground.getHeight()});
                     hill.setAlpha(0.5);
@@ -43,6 +46,7 @@ myDirectives.directive('spriteSheetRunner', ['loaderSvc','Sky', 'Ground', 'Hill'
                     ground.addToStage(scope.stage);
                     grant = new Character({characterAssetName: 'grant', y: 34})
                     grant.addToStage(scope.stage);
+
                     scope.stage.addEventListener("stagemousedown", handleJumpStart);
                     createjs.Ticker.timingMode = createjs.Ticker.RAF;
                     createjs.Ticker.addEventListener("tick", tick);

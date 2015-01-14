@@ -1,5 +1,9 @@
 'use strict';
-// Declare app level module which depends on views, and components
+////////
+// This sample is published as part of the blog article at www.toptal.com/blog
+// Visit www.toptal.com/blog and subscribe to our newsletter to read great posts
+////////
+// Declare app module and its dependencies on views, and components
 angular.module('myApp', [
   'ngRoute',
   'myApp.view1',

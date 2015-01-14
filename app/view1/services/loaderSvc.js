@@ -5,6 +5,7 @@ myServices.service('loaderSvc', function () {
             {src: "ground.png", id: "ground"},
             {src: "hill1.png", id: "hill"},
             {src: "hill2.png", id: "hill2"},
+            {src: "logo.png", id: "logo"},
             {src: "runningTrack.mp3", id: "runningSound"},
             {src: "jump.mp3", id: "jumpingSound"}
         ], loader = new createjs.LoadQueue(true);
