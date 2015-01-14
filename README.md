@@ -4,7 +4,7 @@ This sample is published as part of the blog article at [www.toptal.com/blog] (h
 
 Visit [www.toptal.com/blog] (http://www.toptal.com/blog) and subscribe to our newsletter to read great posts
 
-I started by downloading application skeleton for a typical [AngularJS](http://angularjs.org/) web app from [here](https://github.com/angular/angular-seed.git), implemented EaselJS' SpriteSheets example from [here](http://www.createjs.com/#!/Demos/EaselJS/Spritesheets), and finally added some music, sound effects and scoring mechanism
+I started by cloning an application skeleton for a typical [AngularJS](http://angularjs.org/) web app from [here](https://github.com/angular/angular-seed.git), implemented EaselJS' SpriteSheets example from [here](http://www.createjs.com/#!/Demos/EaselJS/Spritesheets), and finally added some music, sound effects and scoring mechanism
 
 ## Getting Started
 
@@ -226,16 +226,6 @@ tests when you push to GitHub.
 
 You will need to enable the integration between Travis and GitHub. See the Travis website for more
 instruction on how to do this.
-
-### CloudBees
-
-CloudBees have provided a CI/deployment setup:
-
-<a href="https://grandcentral.cloudbees.com/?CB_clickstart=https://raw.github.com/CloudBees-community/angular-js-clickstart/master/clickstart.json">
-<img src="https://d3ko533tu1ozfq.cloudfront.net/clickstart/deployInstantly.png"/></a>
-
-If you run this, you will get a cloned version of this repo to start working on in a private git repo,
-along with a CI service (in Jenkins) hosted that will run unit and end to end tests in both Firefox and Chrome.
 
 
 ## Contact
