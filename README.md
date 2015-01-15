@@ -6,6 +6,8 @@ Visit [www.toptal.com/blog] (http://www.toptal.com/blog) and subscribe to our ne
 
 I started by cloning an application skeleton for a typical [AngularJS](http://angularjs.org/) web app from [here](https://github.com/angular/angular-seed.git), implemented EaselJS' SpriteSheets example from [here](http://www.createjs.com/#!/Demos/EaselJS/Spritesheets), and finally added some music, sound effects and scoring mechanism
 
+#### You can see the game working [here](http://www.techxplorers.net/showcase.html)
+
 ## Getting Started
 
 To get you started you can simply clone the repository and install the dependencies:
